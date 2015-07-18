@@ -85,10 +85,10 @@
 
 #if defined (CONFIG_LININO)
 #		define ATH_U_FILE	u-boot-${board}.bin
-#		define ATH_F_FILE	lininoIO-generic-${board}-rootfs-squashfs.bin
+#		define ATH_F_FILE	lininoBLE-generic-${board}-rootfs-squashfs.bin
 #		define ATH_F_LEN	$filesize
 #		define ATH_F_ADDR	0x9f050000
-#		define ATH_K_FILE	lininoIO-generic-${board}-kernel.bin
+#		define ATH_K_FILE	lininoBLE-generic-${board}-kernel.bin
 #		define ATH_K_ADDR	0x9fEa0000
 
 #		define MTDPARTS_DEFAULT		"mtdparts=spi0.0:256k(u-boot)ro,64k(u-boot-env),14656k(rootfs),1280k(kernel),64k(nvram),64k(art),15936k@0x50000(firmware)\0"
@@ -99,25 +99,25 @@
 #		define TTYENV_DEFAULT		"addtty=setenv bootargs ${bootargs} console=${console}\0"
 #		define ERASE_ENV			"erase_env=erase 0x9f040000 +0x10000\0"
 #		if CONFIG_LININO_YUN
-#			define BOARD_DEFAULT	"board=linino-yun\0"
+#			define BOARD_DEFAULT	"board=linino-yun ext=yun\0"
 #		elif CONFIG_LININO_YUN_MINI
-#			define BOARD_DEFAULT	"board=linino-yun-mini\0"
+#			define BOARD_DEFAULT	"board=linino-yun-mini ext=yun-mini\0"
 #		elif CONFIG_LININO_ONE
-#			define BOARD_DEFAULT	"board=linino-one\0"
+#			define BOARD_DEFAULT	"board=linino-one ext=one\0"
 #		elif CONFIG_LININO_FREEDOG
-#			define BOARD_DEFAULT	"board=linino-freedog\0"
-#               elif CONFIG_LININO_CHIWAWA
-#                       define BOARD_DEFAULT    "board=linino-chiwawa\0"
+#			define BOARD_DEFAULT	"board=linino-freedog ext=freedog\0"
+#		elif CONFIG_LININO_CHIWAWA
+#			define BOARD_DEFAULT	"board=linino-chiwawa ext=chiwawa\0"
 #		else 
 #			define BOARD_DEFAULT	"board=linino\0"
 #		endif
 #		if CONFIG_LININO_IO
 #			define CONSOLE_DEFAULT	"console=spicons\0"
 #		else
-#			define CONSOLE_DEFAULT	"console=ttyATH0,250000\0"
+#			define CONSOLE_DEFAULT	"console=ttyATH0,115200\0"
 #		endif
 #		undef CONFIG_BAUDRATE
-#		define CONFIG_BAUDRATE	250000
+#		define CONFIG_BAUDRATE	115200
 #	endif
 
 #ifndef CONFIG_LININO
