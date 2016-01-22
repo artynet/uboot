@@ -175,9 +175,12 @@ PLATFORM_LIBS += -L $(shell dirname `$(CC) $(CFLAGS) -print-libgcc-file-name`) -
 
 # The "tools" are needed early, so put this first
 # Don't include stuff already done in $(LIBS)
-SUBDIRS	= tools \
-	  post \
-	  post/cpu
+SUBDIRS	= tools
+
+#SUBDIRS	= tools \
+#	  post \
+#	  post/cpu
+
 .PHONY : $(SUBDIRS)
 
 #########################################################################
